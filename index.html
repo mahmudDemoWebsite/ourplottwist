@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff6fb" />
+  <meta name="description" content="A playful little proposal experience. Open the letter, answer the question, and plan a date." />
+  <title>OurPlotTwist — A Little Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="sparkle sparkle-one" aria-hidden="true">✦</div>
+  <div class="sparkle sparkle-two" aria-hidden="true">✧</div>
+
+  <main class="site-wrap">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="OurPlotTwist home">
+        <span class="brand-mark" aria-hidden="true">♡</span>
+        <span>our<span class="brand-accent">plot</span>twist</span>
+      </a>
+      <div class="top-note"><span class="live-dot"></span> a tiny internet love story</div>
+    </header>
+
+    <section class="experience-card" id="top" aria-live="polite">
+      <div class="card-topline">
+        <span class="tiny-label"><span class="tiny-star">✦</span> MADE WITH A LITTLE COURAGE</span>
+        <span class="step-count" id="stepCount">01 <i>/ 03</i></span>
+      </div>
+
+      <!-- Intro screen -->
+      <section class="screen active" id="introScreen">
+        <div class="intro-grid">
+          <div class="intro-copy">
+            <div class="eyebrow">PSSST... THIS IS FOR YOU</div>
+            <h1>A little letter.<br /><em>A big question.</em></h1>
+            <p class="lead">Someone has butterflies, a slightly dramatic plan, and one tiny question to ask you.</p>
+
+            <div class="name-fields">
+              <label class="field-label" for="fromName">FROM <span>(optional)</span>
+                <input id="fromName" type="text" maxlength="32" placeholder="Your name" autocomplete="name" />
+              </label>
+              <label class="field-label" for="toName">TO <span>(optional)</span>
+                <input id="toName" type="text" maxlength="32" placeholder="Their name" autocomplete="off" />
+              </label>
+            </div>
+            <button class="primary-button open-letter" id="openLetterBtn" type="button">
+              <span>Open your little letter</span><span class="button-icon" aria-hidden="true">↗</span>
+            </button>
+            <p class="micro-copy"><span aria-hidden="true">♡</span> no pressure, just a little plot twist.</p>
+          </div>
+
+          <div class="letter-art" aria-label="An illustrated pink envelope with a heart seal" role="img">
+            <div class="art-orbit orbit-a"></div>
+            <div class="art-orbit orbit-b"></div>
+            <span class="art-star star-a">✦</span>
+            <span class="art-star star-b">✧</span>
+            <span class="art-heart heart-a">♥</span>
+            <div class="envelope" id="envelopeArt">
+              <div class="envelope-back"></div>
+              <div class="letter-paper"><span>to my<br />favorite plot twist</span><b>♡</b></div>
+              <div class="envelope-front"></div>
+              <div class="envelope-flap"></div>
+              <div class="wax-seal">♥</div>
+            </div>
+            <span class="art-caption">one little question inside</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proposal screen -->
+      <section class="screen" id="proposalScreen" hidden>
+        <div class="proposal-content">
+          <div class="floating-heart" aria-hidden="true">♥</div>
+          <div class="eyebrow" id="questionEyebrow">THE MOMENT OF TRUTH</div>
+          <h2 id="questionHeading">Can I make a little memory with you?</h2>
+          <p class="lead proposal-lead" id="questionLead">Will you go on a date with me?</p>
+          <p class="playful-note" id="playfulNote">The NO button has trust issues. Try catching it. 😂</p>
+
+          <div class="answer-playground" id="answerPlayground">
+            <button class="yes-button" id="yesBtn" type="button"><span>YES, LET'S GO</span><span aria-hidden="true">♡</span></button>
+            <button class="no-button" id="noBtn" type="button" aria-label="Try to click No">NO 🙈</button>
+          </div>
+          <p class="little-footnote">made of pixels, powered by butterflies</p>
+        </div>
+      </section>
+
+      <!-- Date planner screen -->
+      <section class="screen" id="plannerScreen" hidden>
+        <div class="planner-heading">
+          <div class="success-stamp" aria-hidden="true">♡</div>
+          <div class="eyebrow">WELL, THIS IS EXCITING</div>
+          <h2>YOU JUST MADE<br /><em>SOMEONE'S DAY.</em></h2>
+          <p class="lead">Now let's turn that little YES into an actual plan.</p>
+        </div>
+
+        <form id="dateForm" class="date-form">
+          <div class="form-row">
+            <label class="field-label" for="dateName">YOUR DATE'S NAME
+              <input id="dateName" type="text" maxlength="32" placeholder="Their name" required />
+            </label>
+            <label class="field-label" for="dateFrom">INVITED BY
+              <input id="dateFrom" type="text" maxlength="32" placeholder="Your name" required />
+            </label>
+          </div>
+          <div class="form-row date-time-row">
+            <label class="field-label" for="dateInput">THE DATE
+              <input id="dateInput" type="date" required />
+            </label>
+            <label class="field-label" for="timeInput">THE TIME
+              <input id="timeInput" type="time" value="17:30" required />
+            </label>
+          </div>
+          <label class="field-label" for="placeInput">MEET ME AT <span>(optional)</span>
+            <input id="placeInput" type="text" maxlength="70" placeholder="A cute café, the park, somewhere magical..." />
+          </label>
+
+          <fieldset class="vibe-fieldset">
+            <legend>CHOOSE YOUR DATE VIBE</legend>
+            <div class="vibe-grid">
+              <label class="vibe-option"><input type="radio" name="vibe" value="Coffee & Conversation" checked /><span class="vibe-emoji">☕</span><span class="vibe-title">Coffee &amp; Chat</span><span class="vibe-subtitle">slow sips, big talks</span></label>
+              <label class="vibe-option"><input type="radio" name="vibe" value="Sunset Walk" /><span class="vibe-emoji">🌇</span><span class="vibe-title">Sunset Walk</span><span class="vibe-subtitle">golden-hour magic</span></label>
+              <label class="vibe-option"><input type="radio" name="vibe" value="Food Adventure" /><span class="vibe-emoji">🍜</span><span class="vibe-title">Food Mission</span><span class="vibe-subtitle">you pick the snacks</span></label>
+              <label class="vibe-option"><input type="radio" name="vibe" value="Cozy Movie Date" /><span class="vibe-emoji">🎬</span><span class="vibe-title">Movie Night</span><span class="vibe-subtitle">one movie, many snacks</span></label>
+            </div>
+          </fieldset>
+          <button class="primary-button form-submit" type="submit"><span>Create our date card</span><span class="button-icon" aria-hidden="true">♡</span></button>
+          <p class="form-footnote">This makes a cute card in your browser. It doesn't book or send anything automatically.</p>
+        </form>
+      </section>
+
+      <!-- Invitation result screen -->
+      <section class="screen" id="inviteScreen" hidden>
+        <div class="invite-heading">
+          <div class="eyebrow">IT'S A LITTLE DATE, THEN</div>
+          <h2>Your next little<br /><em>plot twist.</em></h2>
+          <p class="lead">A plan has entered the group chat. (Well, almost.)</p>
+        </div>
+        <article class="invite-card" id="inviteCard">
+          <div class="invite-card-top"><span>OUR LITTLE DATE</span><span class="invite-heart">♥</span></div>
+          <div class="invite-card-middle">
+            <span class="invite-pretitle">dear <span id="inviteTo">someone special</span>,</span>
+            <h3>It's a <em>date.</em></h3>
+            <p class="invite-message">I'd love to spend a little time with you.</p>
+            <div class="invite-details">
+              <div><span class="detail-label">WHEN</span><strong id="inviteDate">Date goes here</strong><span id="inviteTime">Time goes here</span></div>
+              <div><span class="detail-label">THE VIBE</span><strong id="inviteVibe">Coffee &amp; Conversation</strong><span id="invitePlace">Somewhere lovely</span></div>
+            </div>
+            <p class="invite-signoff">can't wait, <span id="inviteFrom">your person</span> ♡</p>
+          </div>
+          <div class="invite-card-bottom"><span>LESS SCROLLING, MORE STORYTELLING</span><span>✦ ✧ ♡</span></div>
+        </article>
+        <div class="invite-actions">
+          <button class="primary-button" id="copyInviteBtn" type="button"><span>Copy invitation text</span><span class="button-icon" aria-hidden="true">⧉</span></button>
+          <button class="secondary-button" id="shareInviteBtn" type="button" hidden>Share invite ↗</button>
+          <button class="text-button" id="restartBtn" type="button">Start the story again ↺</button>
+          <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <footer class="card-footer">
+        <span>OURPLOTTWIST <span class="footer-dot">•</span> A LITTLE COURAGE GOES A LONG WAY</span>
+        <span class="footer-hearts" aria-hidden="true">♡ &nbsp; ✦ &nbsp; ♡</span>
+      </footer>
+    </section>
+    <p class="outside-note">A small, silly, sweet thing made for someone special.</p>
+  </main>
+
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+</body>
+</html>
